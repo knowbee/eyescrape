@@ -1,6 +1,6 @@
 # eyescrape
 
-    scrape every news
+    I just wanna know what's up in my terminal
 
 <p>
     <img src="https://raw.githubusercontent.com/knowbee/hosting/master/assets/eyescrape.PNG" width="auto" height="auto" hspace="10"/>
@@ -19,8 +19,8 @@
 
 ## Options
 
-    igihe: Fetch headlines from igihe.com
+    igihe: Fetch news headlines from igihe.com
 
-    inyarwanda: Fetch healines from inyarwanda.com
+    inyarwanda: Fetch news healines from inyarwanda.com
 
-    thechronicles:  Fetch headlines from thechronicles.rw
+    thechronicles:  Fetch news headlines from thechronicles.rw
