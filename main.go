@@ -46,7 +46,7 @@ func main() {
 				fmt.Println(blogTitles)
 			case a == "help" || a == "--help":
 				fmt.Println("eyescrape")
-				fmt.Println("Get headlines from multiple sources of newswebsites from Rwanda")
+				fmt.Println("Get headlines from multiple sources of news websites from Rwanda")
 				fmt.Println("Example: main.exe igihe")
 
 			}
