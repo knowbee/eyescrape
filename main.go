@@ -21,7 +21,8 @@ func main() {
 				fmt.Println("Fetching headlines from ", a)
 				blogTitles, err := getLatest("https://igihe.com/", ".homenews-title")
 				if err != nil {
-					fmt.Println("Please try again")
+					fmt.Println("Network error")
+					os.Exit(0)
 				}
 				fmt.Println("Blog titles: ")
 				fmt.Println(blogTitles)
@@ -29,7 +30,8 @@ func main() {
 				fmt.Println("Fetching headlines from ", a)
 				blogTitles, err := getLatest("http://inyarwanda.com/", ".fonttitle")
 				if err != nil {
-					fmt.Println("Please try again")
+					fmt.Println("Network error")
+					os.Exit(0)
 				}
 				fmt.Println("Blog titles: ")
 				fmt.Println(blogTitles)
@@ -37,7 +39,8 @@ func main() {
 				fmt.Println("Fetching headlines from ", a)
 				blogTitles, err := getLatest("https://www.chronicles.rw/category/politics/", ".article-title")
 				if err != nil {
-					fmt.Println("Please try again")
+					fmt.Println("Network error")
+					os.Exit(0)
 				}
 				fmt.Println("Blog titles: ")
 				fmt.Println(blogTitles)
