@@ -2,15 +2,13 @@ package main
 
 import (
 	"fmt"
-	"net/http"
 	"os"
 	"strings"
 
-	"github.com/PuerkitoBio/goquery"
+	. "github.com/knowbee/eyescrape/scrape"
 )
 
 func main() {
-
 	args := os.Args[1:]
 
 	if len(args) > 0 {
@@ -19,7 +17,7 @@ func main() {
 			switch {
 			case a == "igihe":
 				fmt.Println("Fetching headlines from ", a)
-				blogTitles, err := getLatest("https://igihe.com/", ".homenews-title")
+				blogTitles, err := GetLatest("https://igihe.com/", ".homenews-title")
 				if err != nil {
 					fmt.Println("Network error")
 					os.Exit(0)
@@ -28,7 +26,7 @@ func main() {
 				fmt.Println(blogTitles)
 			case a == "inyarwanda":
 				fmt.Println("Fetching headlines from ", a)
-				blogTitles, err := getLatest("http://inyarwanda.com/", ".fonttitle")
+				blogTitles, err := GetLatest("http://inyarwanda.com/", ".fonttitle")
 				if err != nil {
 					fmt.Println("Network error")
 					os.Exit(0)
@@ -37,7 +35,7 @@ func main() {
 				fmt.Println(blogTitles)
 			case a == "thechronicles":
 				fmt.Println("Fetching headlines from ", a)
-				blogTitles, err := getLatest("https://www.chronicles.rw/category/politics/", ".article-title")
+				blogTitles, err := GetLatest("https://www.chronicles.rw/category/politics/", ".article-title")
 				if err != nil {
 					fmt.Println("Network error")
 					os.Exit(0)
@@ -47,7 +45,7 @@ func main() {
 			case a == "help" || a == "--help":
 				fmt.Println("eyescrape")
 				fmt.Println("Get headlines from multiple sources of news websites from Rwanda")
-				fmt.Println("Example: main.exe igihe")
+				fmt.Println("Example: eyescrape igihe")
 
 			}
 
@@ -57,25 +55,4 @@ func main() {
 		fmt.Println("specify website name")
 	}
 
-}
-func getLatest(url, selector string) (string, error) {
-	resp, err := http.Get(url)
-
-	if err != nil {
-		return "Please try again", err
-	}
-
-	doc, err := goquery.NewDocumentFromReader(resp.Body)
-
-	if err != nil {
-		return "", err
-	}
-
-	titles := ""
-
-	doc.Find(selector).Each(func(i int, s *goquery.Selection) {
-		titles += "- " + s.Text() + "\n"
-	})
-
-	return titles, nil
 }
