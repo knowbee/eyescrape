@@ -29,7 +29,8 @@ func main() {
 					fmt.Println("Network error")
 					os.Exit(0)
 				}
-
+				fmt.Println("Blog titles: ")
+				print(blogTitles)
 				Send(blogTitles)
 			case a == "inyarwanda":
 				fmt.Println("Fetching headlines from ", a)
@@ -38,7 +39,8 @@ func main() {
 					fmt.Println("Network error")
 					os.Exit(0)
 				}
-
+				fmt.Println("Blog titles: ")
+				print(blogTitles)
 				Send(blogTitles)
 			case a == "thechronicles":
 				fmt.Println("Fetching headlines from ", a)
@@ -47,7 +49,8 @@ func main() {
 					fmt.Println("Network error")
 					os.Exit(0)
 				}
-
+				fmt.Println("Blog titles: ")
+				print(blogTitles)
 				Send(blogTitles)
 			case a == "help" || a == "--help":
 				fmt.Println("eyescrape")
