@@ -25,21 +25,52 @@ func main() {
 
 	app.Commands = []cli.Command{
 		{
-			Name:  "fetch",
-			Usage: "fetching latest headlines",
+			Name:  "igihe",
+			Usage: "fetch igihe headlines and specify your limit",
 			Flags: []cli.Flag{
 				cli.StringFlag{
-					Name:  "host",
-					Value: "https://igihe.com",
-				},
-				cli.StringFlag{
-					Name:  "selector",
-					Value: ".homenews-title",
+					Name:  "limit",
+					Value: "5",
 				},
 			},
 			Action: func(c *cli.Context) error {
-				// switch c.FlagNames()[0]
-				headlines, err := GetLatest(c.String("host"), c.String("selector"))
+				headlines, err := GetLatest("https://www.igihe.com", ".homenews-title", c.String("limit"))
+				if err != nil {
+					return nil
+				}
+				fmt.Println(headlines)
+				return nil
+			},
+		},
+		{
+			Name:  "inyarwanda",
+			Usage: "fetch inyarwanda headlines and specify your limit",
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:  "limit",
+					Value: "5",
+				},
+			},
+			Action: func(c *cli.Context) error {
+				headlines, err := GetLatest("http://inyarwanda.com/", ".fonttitle", c.String("limit"))
+				if err != nil {
+					return nil
+				}
+				fmt.Println(headlines)
+				return nil
+			},
+		},
+		{
+			Name:  "chronicles",
+			Usage: "fetch chronicles headlines and specify your limit",
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:  "limit",
+					Value: "5",
+				},
+			},
+			Action: func(c *cli.Context) error {
+				headlines, err := GetLatest("https://www.chronicles.rw/category/politics/", ".article-title", c.String("limit"))
 				if err != nil {
 					return nil
 				}
@@ -53,46 +84,4 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	// for _, a := range args {
-	// 	a = strings.ToLower(a)
-	// 	switch {
-	// 	case a == "igihe":
-	// 		fmt.Println("Fetching headlines from ", a)
-	// 		blogTitles, err := GetLatest("https://igihe.com/", ".homenews-title")
-	// 		if err != nil {
-	// 			fmt.Println("Network error")
-	// 			os.Exit(0)
-	// 		}
-	// 		fmt.Println("Blog titles: ")
-	// 		print(blogTitles)
-	// 		// Send(blogTitles, a)
-	// 	case a == "inyarwanda":
-	// 		fmt.Println("Fetching headlines from ", a)
-	// 		blogTitles, err := GetLatest("http://inyarwanda.com/", ".fonttitle")
-	// 		if err != nil {
-	// 			fmt.Println("Network error")
-	// 			os.Exit(0)
-	// 		}
-	// 		fmt.Println("Blog titles: ")
-	// 		print(blogTitles)
-	// 		// Send(blogTitles, a)
-	// 	case a == "thechronicles":
-	// 		fmt.Println("Fetching headlines from ", a)
-	// 		blogTitles, err := GetLatest("https://www.chronicles.rw/category/politics/", ".article-title")
-	// 		if err != nil {
-	// 			fmt.Println("Network error")
-	// 			os.Exit(0)
-	// 		}
-	// 		fmt.Println("Blog titles: ")
-	// 		print(blogTitles)
-	// 		// Send(blogTitles, a)
-	// 	case a == "help" || a == "--help":
-	// 		fmt.Println("eyescrape")
-	// 		fmt.Println("Get headlines from multiple sources of news websites from Rwanda")
-	// 		fmt.Println("Example: eyescrape igihe")
-
-	// 	}
-
-	// }
-
 }
