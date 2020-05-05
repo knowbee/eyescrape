@@ -7,7 +7,7 @@ import (
 )
 
 // Send email of headlines
-func Send(body string) {
+func Send(body, website string) {
 
 	from := os.Getenv("FROM")
 	pass := os.Getenv("PASSWORD")
@@ -15,7 +15,7 @@ func Send(body string) {
 
 	msg := "From: " + from + "\n" +
 		"To: " + to + "\n" +
-		"Subject: Clean Headlines\n\n" +
+		"Subject: Headlines from " + website + "\n\n" +
 		body
 
 	err := smtp.SendMail("smtp.gmail.com:587",
