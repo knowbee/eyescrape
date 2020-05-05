@@ -98,7 +98,7 @@ func main() {
 		},
 		{
 			Name:  "bwiza",
-			Usage: "fetch umuryango bwiza and specify your limit",
+			Usage: "fetch bwiza headlines and specify your limit",
 			Flags: []cli.Flag{
 				cli.StringFlag{
 					Name:  "limit",
@@ -106,7 +106,25 @@ func main() {
 				},
 			},
 			Action: func(c *cli.Context) error {
-				headlines, err := GetLatest("http://umuryango.rw/amakuru/", ".artticle", c.String("limit"))
+				headlines, err := GetLatest("http://bwiza.com/spip.php?page=home", ".media-heading", c.String("limit"))
+				if err != nil {
+					return nil
+				}
+				fmt.Println(headlines)
+				return nil
+			},
+		},
+		{
+			Name:  "kt",
+			Usage: "fetch kigali today headlines and specify your limit",
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:  "limit",
+					Value: "5",
+				},
+			},
+			Action: func(c *cli.Context) error {
+				headlines, err := GetLatest("https://www.kigalitoday.com/", ".headline", c.String("limit"))
 				if err != nil {
 					return nil
 				}
