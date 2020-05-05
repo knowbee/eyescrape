@@ -78,6 +78,42 @@ func main() {
 				return nil
 			},
 		},
+		{
+			Name:  "umuryango",
+			Usage: "fetch umuryango headlines and specify your limit",
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:  "limit",
+					Value: "5",
+				},
+			},
+			Action: func(c *cli.Context) error {
+				headlines, err := GetLatest("http://umuryango.rw/amakuru/", ".artticle", c.String("limit"))
+				if err != nil {
+					return nil
+				}
+				fmt.Println(headlines)
+				return nil
+			},
+		},
+		{
+			Name:  "bwiza",
+			Usage: "fetch umuryango bwiza and specify your limit",
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:  "limit",
+					Value: "5",
+				},
+			},
+			Action: func(c *cli.Context) error {
+				headlines, err := GetLatest("http://umuryango.rw/amakuru/", ".artticle", c.String("limit"))
+				if err != nil {
+					return nil
+				}
+				fmt.Println(headlines)
+				return nil
+			},
+		},
 	}
 
 	err := app.Run(os.Args)
