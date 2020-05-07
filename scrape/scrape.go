@@ -36,8 +36,15 @@ func GetLatest(url, selector, limit string) (string, error) {
 		headlines = headlines.Slice(0, l)
 	}
 
+	link := ""
 	headlines.Each(func(i int, s *goquery.Selection) {
-		titles += "- " + strings.TrimSpace(s.Text()) + "\n"
+		headlineURL, _ := s.Attr("href")
+		if strings.Contains(headlineURL, "http") {
+			link = headlineURL
+		} else {
+			link = url + headlineURL
+		}
+		fmt.Println("Headline: " + s.Text() + "\n" + "Link: " + link + "\n")
 	})
 
 	return titles, nil

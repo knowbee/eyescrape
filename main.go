@@ -34,7 +34,7 @@ func main() {
 				},
 			},
 			Action: func(c *cli.Context) error {
-				headlines, err := GetLatest("https://www.igihe.com", ".homenews-title", c.String("limit"))
+				headlines, err := GetLatest("https://www.igihe.com", ".homenews-title a", c.String("limit"))
 				if err != nil {
 					return nil
 				}
@@ -52,7 +52,7 @@ func main() {
 				},
 			},
 			Action: func(c *cli.Context) error {
-				headlines, err := GetLatest("http://inyarwanda.com/", ".fonttitle", c.String("limit"))
+				headlines, err := GetLatest("http://inyarwanda.com/", ".fonttitle a", c.String("limit"))
 				if err != nil {
 					return nil
 				}
@@ -70,7 +70,7 @@ func main() {
 				},
 			},
 			Action: func(c *cli.Context) error {
-				headlines, err := GetLatest("https://www.chronicles.rw/category/politics/", ".article-title", c.String("limit"))
+				headlines, err := GetLatest("https://www.chronicles.rw/category/politics/", ".article-title a", c.String("limit"))
 				if err != nil {
 					return nil
 				}
@@ -88,7 +88,7 @@ func main() {
 				},
 			},
 			Action: func(c *cli.Context) error {
-				headlines, err := GetLatest("http://umuryango.rw/amakuru/", ".artticle", c.String("limit"))
+				headlines, err := GetLatest("http://umuryango.rw/amakuru/", ".artticle a", c.String("limit"))
 				if err != nil {
 					return nil
 				}
@@ -106,7 +106,7 @@ func main() {
 				},
 			},
 			Action: func(c *cli.Context) error {
-				headlines, err := GetLatest("http://bwiza.com/spip.php?page=home", ".media-heading", c.String("limit"))
+				headlines, err := GetLatest("http://bwiza.com/spip.php?page=home", ".media-heading a", c.String("limit"))
 				if err != nil {
 					return nil
 				}
@@ -125,7 +125,7 @@ func main() {
 				},
 			},
 			Action: func(c *cli.Context) error {
-				headlines, err := GetLatest("https://www.kigalitoday.com/", ".headline", c.String("limit"))
+				headlines, err := GetLatest("https://www.kigalitoday.com/", ".headline a", c.String("limit"))
 				if err != nil {
 					return nil
 				}
