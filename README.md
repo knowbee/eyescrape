@@ -27,7 +27,7 @@
 
     bwiza: Fetch news headlines from bwiza.com
 
-    bwiza: Fetch news headlines from bwiza.com
+    umuryango: Fetch news headlines from bwiza.rw
 
     kt: Fetch news headlines from kigalitoday.com
 
