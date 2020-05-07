@@ -114,6 +114,7 @@ func main() {
 				return nil
 			},
 		},
+		// https://www.worldometers.info/coronavirus/country/rwanda/
 		{
 			Name:  "kt",
 			Usage: "fetch kigali today headlines and specify your limit",
@@ -125,6 +126,24 @@ func main() {
 			},
 			Action: func(c *cli.Context) error {
 				headlines, err := GetLatest("https://www.kigalitoday.com/", ".headline", c.String("limit"))
+				if err != nil {
+					return nil
+				}
+				fmt.Println(headlines)
+				return nil
+			},
+		},
+		{
+			Name:  "covid",
+			Usage: "fetch covid statistics for Rwanda",
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:  "limit",
+					Value: "1",
+				},
+			},
+			Action: func(c *cli.Context) error {
+				headlines, err := GetLatest("https://www.worldometers.info/coronavirus/country/rwanda/", ".news_li", c.String("limit"))
 				if err != nil {
 					return nil
 				}

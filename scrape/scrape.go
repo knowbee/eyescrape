@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 )
@@ -36,7 +37,7 @@ func GetLatest(url, selector, limit string) (string, error) {
 	}
 
 	headlines.Each(func(i int, s *goquery.Selection) {
-		titles += "- " + s.Text() + "\n"
+		titles += "- " + strings.TrimSpace(s.Text()) + "\n"
 	})
 
 	return titles, nil
