@@ -23,4 +23,12 @@
 
     inyarwanda: Fetch news healines from inyarwanda.com
 
-    thechronicles:  Fetch news headlines from thechronicles.rw
+    chronicles: Fetch news headlines from thechronicles.rw
+
+    bwiza: Fetch news headlines from bwiza.com
+
+    bwiza: Fetch news headlines from bwiza.com
+
+    kt: Fetch news headlines from kigalitoday.com
+
+    covid: Fetch daily statistics of covid in Rwanda from worldometers.info

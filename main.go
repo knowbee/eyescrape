@@ -114,7 +114,6 @@ func main() {
 				return nil
 			},
 		},
-		// https://www.worldometers.info/coronavirus/country/rwanda/
 		{
 			Name:  "kt",
 			Usage: "fetch kigali today headlines and specify your limit",
