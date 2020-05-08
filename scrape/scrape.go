@@ -42,7 +42,7 @@ func GetLatest(url, selector, limit string) (string, error) {
 		if strings.Contains(headlineURL, "http") {
 			link = headlineURL
 		} else {
-			link = url + headlineURL
+			link = url + strings.ReplaceAll(headlineURL, "./", "/")
 		}
 		fmt.Println("Headline: " + s.Text() + "\n" + "Link: " + link + "\n")
 	})

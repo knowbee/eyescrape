@@ -34,7 +34,7 @@ func main() {
 				},
 			},
 			Action: func(c *cli.Context) error {
-				headlines, err := GetLatest("https://www.igihe.com", ".homenews-title a", c.String("limit"))
+				headlines, err := GetLatest("https://www.igihe.com/", ".homenews-title a", c.String("limit"))
 				if err != nil {
 					return nil
 				}
@@ -106,7 +106,7 @@ func main() {
 				},
 			},
 			Action: func(c *cli.Context) error {
-				headlines, err := GetLatest("http://bwiza.com/spip.php?page=home", ".media-heading a", c.String("limit"))
+				headlines, err := GetLatest("http://bwiza.com", ".media-heading a", c.String("limit"))
 				if err != nil {
 					return nil
 				}
