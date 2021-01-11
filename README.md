@@ -1,7 +1,5 @@
 # eyescrape
 
-    I just wanna know what's up in my terminal
-
 <div align="center">
     <img src="https://raw.githubusercontent.com/knowbee/hosting/master/assets/home.PNG" width="auto" height="auto" hspace="10"/>
     <img src="https://raw.githubusercontent.com/knowbee/hosting/master/assets/eyescrape.PNG" width="auto" height="auto" hspace="10"/>

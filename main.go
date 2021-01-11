@@ -5,24 +5,16 @@ import (
 	"log"
 	"os"
 
-	"github.com/joho/godotenv"
 	. "github.com/knowbee/eyescrape/scrape"
 	"github.com/urfave/cli"
 )
 
 func main() {
-	envError := godotenv.Load(".env")
-
-	if envError != nil {
-		log.Fatalf("Error loading .env file")
-	}
-
 	app := cli.NewApp()
 	app.Name = "eyescrape"
 	app.Author = "knowbee"
 	app.Email = "knowbeeinc@gmail.com"
 	app.Usage = "Get headlines from multiple sources of news websites from Rwanda"
-
 	app.Commands = []cli.Command{
 		{
 			Name:  "igihe",
